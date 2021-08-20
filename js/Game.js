@@ -29,10 +29,14 @@ class Game {
       form.display();
     }
 
-    car1 = createSprite(100,200);
-    car2 = createSprite(300,200);
-    car3 = createSprite(500,200);
-    car4 = createSprite(700,200);
+    car1 = createSprite(430,200);
+    car1.addImage(img1)
+    car2 = createSprite(660,200);
+    car2.addImage(img2)
+    car3 = createSprite(890,200);
+    car3.addImage(img3)
+    car4 = createSprite(1120,200);
+    car4.addImage(img4)
     cars = [car1, car2, car3, car4];
   }
 
@@ -67,6 +71,8 @@ class Game {
           camera.position.x = displayWidth/2;
           camera.position.y = cars[index-1].y
         }
+
+        
        
         //textSize(15);
         //text(allPlayers[plr].name + ": " + allPlayers[plr].distance, 120,display_position)
@@ -79,6 +85,13 @@ class Game {
       player.update();
     }
 
+    if (player.distance >= 3000){
+      show = true
+      text = player.name + " won!"
+      game.update(2);
+    }
+
+    background(track)
     drawSprites();
   }
 }
